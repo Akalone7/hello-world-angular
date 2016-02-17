@@ -15,19 +15,19 @@ var watch = require('gulp-watch');
 // == PATH STRINGS ========
 
 var paths = {
-  scripts: ['app/services/**/*.js', 'app/components/**/*.js', 'app/shared/**/*.js', 'assets/javascripts/**/*.js', 'app/app.constants.js', 'app/app.js'],
+  scripts: ['app/services/**/*.js', 'app/services/**/*.js', 'app/components/**/*.js', 'app/shared/**/*.js', 'assets/javascripts/**/*.js', 'app/app.constants.js', 'app/app.js'],
   resources: ['resources/**/*.json', 'resources/I18n/angular-locale*.js'],
   styles: ['./assets/stylesheets/**/*.css', './assets/stylesheets/**/*.scss'],
   assets: [
     './assets/fonts/**/*',
     './bower_components/font-awesome/fonts/**/*',
     './bower_components/bootstrap-sass/assets/fonts/**/*',
-    './app/resources/**/*.json'
+    '/app/resources/**/*.json'
   ],
   index: 'app/index.html',
-  partials: ['./app/components/**/*.tpl.html', './app/shared/**/*.tpl.html'],
-  bowerDir: '/bower_components/',
-  directivesDir: './app/scripts/directives/',
+  partials: ['/app/components/**/*.tpl.html', '/app/shared/**/*.tpl.html'],
+  bowerDir: './bower_components/',
+  directivesDir: '/app/scripts/directives/',
   distDev: './dist',
   //distProd: './dist_prod',
   //test: 'test',
