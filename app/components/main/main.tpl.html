@@ -5,27 +5,16 @@
       <div class="navbar-brand"><a class="text-header"></a></div>
     </div>
     <ul class="nav navbar-nav navbar-center" >
-      <li ui-sref-active="active"><a ui-sref="root.bootstrap.main.campaignslist">{{'campaigns' | translate}}</a></li>
+      <li ui-sref-active="active"><a ui-sref="root.bootstrap.main">{{'lTest' +  test | translate}}</a></li>
+    {{dummy}}
     </ul>
-    <!-- <ul class="nav navbar-nav navbar-right" >
-      <li class="user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="initials">GR</span>
-        <span class="name">Giuseppe Ripa</span>
-        <span class="company">Cerved Group S.p.a</span>
-        <i class="fa fa-caret-down"></i>
-      </li>
-      <ul class="dropdown-menu dropdown-menu-right">
-        <li><a ui-sref="root.bootstrap.main.settings">{{'settings' | translate}}</a></li>
-        <li><a href="#">Log out</a></li>
-      </ul>
-    </ul> -->
   </div>
 </nav>
 
-<div id="main-tab-container" class="tab-content tabbable" sticky-state="root.bootstrap.main.campaignslist" ng-hide="state.current.name !== 'root.bootstrap.main.campaignslist'">
+<div id="main-tab-container" class="tab-content tabbable" sticky-state="root.bootstrap.main.campaignslist" ng-hide="state.current.name !== 'root.bootstrap.main'">
   <div ui-view="campaigntab"></div>
 </div>
 
-<div class="tab-content" sticky-state="root.bootstrap.main.settings" ng-hide="state.current.name !== 'root.bootstrap.main.settings'">
+<div class="tab-content" sticky-state="root.bootstrap.main.settings" ng-hide="state.current.name !== 'root.bootstrap.main'">
   <div ui-view="settingstab"></div>
 </div>

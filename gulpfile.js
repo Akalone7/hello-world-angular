@@ -25,9 +25,9 @@ var paths = {
     '/app/resources/**/*.json'
   ],
   index: 'app/index.html',
-  partials: ['/app/components/**/*.tpl.html', '/app/shared/**/*.tpl.html'],
+  partials: ['app/components/**/*.tpl.html', 'app/shared/**/*.tpl.html'],
   bowerDir: './bower_components/',
-  directivesDir: '/app/scripts/directives/',
+  directivesDir: 'app/scripts/directives/',
   distDev: './dist',
   //distProd: './dist_prod',
   //test: 'test',
