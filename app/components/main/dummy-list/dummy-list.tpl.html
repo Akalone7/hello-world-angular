@@ -5,15 +5,15 @@
       <div class="navbar-brand"><a class="text-header"></a></div>
     </div>
     <ul class="nav navbar-nav navbar-center" >
-      <ul class="example-animate-container">
+      <ul class="container">
         <li class="dummy-element" ng-repeat="dummy in dummies | filter:q as results">
           [{{$index + 1}} - {{dummy.id}}] {{dummy.value}}
             <button id="bRemoveDummy" ng-click="removeDummy(dummy.id)" type="button" class="btn btn-delete glyphicon glyphicon-trash">
                 <!--{{'bRemoveDummy' | translate}}-->
             </button>
         </li>
-        <li class="animate-repeat" ng-if="results.length == 0">
-          <strong>No results found...</strong>
+        <li class="no-dummy" ng-if="results.length == 0">
+         <label>{{'lNoResults' | translate}}</label>
         </li>
       </ul>
     </ul>

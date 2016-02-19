@@ -3,5 +3,6 @@
   "lDummyInsert" : "New element",
   "bRemoveDummy" : "Remove",
   "bInsertDummy" : "Insert",
-  "lInsertDummyValue" : "New dummy element:"
+  "lInsertDummyValue" : "New dummy element:",
+  "lNoResults" : "No elements to show"
 }
