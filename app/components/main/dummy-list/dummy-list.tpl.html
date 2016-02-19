@@ -1,0 +1,21 @@
+<nav id="main-nav" class="navbar navbar-inverse">
+  <div class="container-fluid">
+{{lDummyList | translate}}
+    <div class="navbar-header">
+      <div class="navbar-brand"><a class="text-header"></a></div>
+    </div>
+    <ul class="nav navbar-nav navbar-center" >
+      <ul class="example-animate-container">
+        <li class="dummy-element" ng-repeat="dummy in dummies | filter:q as results">
+          [{{$index + 1}} - {{dummy.id}}] {{dummy.value}}
+            <button id="bRemoveDummy" ng-click="removeDummy(dummy.id)" type="button" class="btn btn-delete glyphicon glyphicon-trash">
+                <!--{{'bRemoveDummy' | translate}}-->
+            </button>
+        </li>
+        <li class="animate-repeat" ng-if="results.length == 0">
+          <strong>No results found...</strong>
+        </li>
+      </ul>
+    </ul>
+  </div>
+</nav>

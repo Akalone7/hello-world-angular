@@ -79,6 +79,30 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
     sticky: true
   });
 
+  states.push({
+    name: 'root.bootstrap.main.dummyList',
+    url: '/dummyList',
+    views: {
+      'dummyListTab': {
+        controller: 'DummyListCtrl as dummyList',
+        templateUrl: 'app/components/main/dummy-list/dummy-list.tpl.html'
+      }
+    },
+    sticky: true
+  });
+
+  states.push({
+    name: 'root.bootstrap.main.dummyInsert',
+    url: '/dummyInsert',
+    views: {
+      'dummyInsertTab': {
+        controller: 'DummyInsertCtrl as dummyInsert',
+        templateUrl: 'app/components/main/dummy-insert/dummy-insert.tpl.html'
+      }
+    },
+    sticky: true
+  });
+
   angular.forEach(states, function (state) {
     $stateProvider.state(state);
   });

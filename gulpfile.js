@@ -16,7 +16,7 @@ var watch = require('gulp-watch');
 
 var paths = {
   scripts: ['app/services/**/*.js', 'app/services/**/*.js', 'app/components/**/*.js', 'app/shared/**/*.js', 'assets/javascripts/**/*.js', 'app/app.constants.js', 'app/app.js'],
-  resources: ['resources/**/*.json', 'resources/I18n/angular-locale*.js'],
+  resources: ['app/resources/**/*.json', 'app/resources/I18n/angular-locale*.js'],
   styles: ['./assets/stylesheets/**/*.css', './assets/stylesheets/**/*.scss'],
   assets: [
     './assets/fonts/**/*',
@@ -157,6 +157,9 @@ gulp.task('clean-dev', function() {
   });
   return deferred.promise;
 });
+
+// compiles app sass and moves to the dev environment
+gulp.task('build-styles-dev', pipes.builtStylesDev);
 
 // cleans and builds a complete dev environment
 gulp.task('clean-build-app-dev', ['clean-dev'], pipes.builtAppDev);

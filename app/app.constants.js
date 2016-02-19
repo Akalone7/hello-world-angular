@@ -12,7 +12,9 @@ angular.module('hsClefraApp')
     return {
       // api urls
       apiPath: apiPath,
-      getMaster: apiPath + '/master'
+      getMaster: apiPath + '/master',
+      insertMaster: apiPath + '/master',
+      deleteMaster: apiPath + '/master'
     }
     })())
   .constant('defaultLanguage', 'it');

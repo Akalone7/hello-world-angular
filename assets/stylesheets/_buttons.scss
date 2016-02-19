@@ -1,0 +1,150 @@
+/************** BUTTONS ***************/
+
+
+.btn{
+  border-width: 2px;
+  background: transparent;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  font-weight: 800;
+  border-radius: 3px;
+  padding: 8px 25px;
+  height: 42px;
+  .help{
+    display: inline-block;
+    border-radius: 10px;
+    width: 10px;
+  }
+  &.small{
+    font-size: 12px;
+    padding: 4px;
+  }
+  &:hover, &:focus, &.focus{
+    color: white;
+  }
+  &.btn-sm{
+    padding: 5px 10px;
+    height: 30px;
+  }
+}
+
+.btn.btn-action,
+.btn.btn-action + .dropdown-toggle{
+  background-color: $action;
+  border-color: $darkAction;
+  &:hover {
+    background-color: $darkAction;
+    border-color: $darkAction;
+  }
+}
+
+.btn.btn-delete,
+.btn.btn-delete + .dropdown-toggle{
+  background-color: $delete;
+  border-color: $darkDelete;
+  &:hover {
+    background-color: $darkDelete;
+    border-color: $darkDelete;
+  }
+},
+
+.btn.btn-primary,
+.btn.btn-primary + .dropdown-toggle{
+  background-color: $primary;
+  border-color: $darkPrimary;
+  &:hover {
+    background-color: $darkPrimary;
+    border-color: d$darkPrimary;
+  }
+}
+
+.btn.btn-default,
+.btn.btn-default + .dropdown-toggle{
+  background-color: $white;
+  border-color: $middleGrey;
+  color: $darkGrey;
+  text-shadow: none;
+  font-weight: 700;
+  &:hover {
+    background-color: #fff;
+  }
+  &.active{
+    background: $darkGrey;
+    color: $white;
+    box-shadow: none;
+  }
+}
+
+/************** BUTTONS GROUP ***************/
+
+.btn-group{  
+  .btn{
+    + .dropdown-toggle{
+      margin-left: -1px;
+      border-left: 1px;
+    }
+  }
+  .dropdown-menu{
+    border-width: 2px;
+    border-radius: 2px;
+    > li > a{
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    .divider{
+      margin: 8px 0;
+    }
+  }
+  
+  .btn-action + .dropdown-menu,
+  .btn-action + .dropdown-toggle + .dropdown-menu{
+    background: $action;
+    border-color: $darkAction;
+    > li > a{
+      color: #fff;
+      &:hover{
+        background:$darkAction;
+      }
+    }
+    .divider{
+      background-color: $darkAction;
+    }
+  }
+  
+  .btn-primary + .dropdown-menu,
+  .btn-primary + .dropdown-toggle + .dropdown-menu{
+    background: $primary;
+    border-color: $darkPrimary;
+    > li > a{
+      color: #fff;
+      &:hover{
+        background:$darkPrimary;
+      }
+    }
+    .divider{
+      background-color: $darkPrimary;
+    }
+  }
+  
+  .btn-default + .dropdown-menu,
+  .btn-default + .dropdown-toggle + .dropdown-menu{
+    background-color: $white;
+    border-color: $middleGrey;
+    > li > a{
+      color: $darkGrey;
+      text-shadow: none;
+      font-weight: 700;
+      &:hover{
+        background:#fff;
+      }
+    }
+    .divider{
+      background-color: $middleGrey;
+    }
+  }
+} 
+
+
+/************************************************/

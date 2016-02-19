@@ -1,3 +1,7 @@
 {
-  "lTest":"Prova Api"
+  "lDummyList" : "Lista elementi",
+  "lDummyInsert" : "Nuovo elemento",
+  "bRemoveDummy" : "Elimina",
+  "bInsertDummy" : "Inserisci",
+  "lInsertDummyValue" : "Nuovo dummy element:"
 }

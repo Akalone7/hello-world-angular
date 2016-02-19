@@ -1,0 +1,74 @@
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "_colors";
+@import "_fonts";
+@import "_buttons";
+@import "_clefra";
+
+body{
+  background: #EAE7E5;
+}
+
+.panel{
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.hidetab{
+  visibility: hidden;
+}
+
+.tabbable {
+  overflow-y: auto;
+}
+.container
+.tab-content{
+  overflow: auto;
+  width: 100%;
+}
+
+h1{
+  margin: 0;
+}
+h4{
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+#wrapper{
+  min-width: 1000px;
+}
+.max-width{
+  max-width: 1300px;
+}
+
+@media screen and (min-width: 1380px){
+  .container {
+      width: 1300px;
+  }
+}
+
+.review-item{
+  padding: 10px;
+  border-bottom: 1px solid $grey;
+  h3{
+    font-family: $font-family-sans-serif;
+  }
+}
+
+.input-widget{
+  height: auto;
+  width: 34px;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 700;
+  color: darken($black,5%);
+}
+
+li {
+  list-style: none;
+}
+
+

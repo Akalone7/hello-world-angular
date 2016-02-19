@@ -1,3 +1,7 @@
 {
-  "lTest":"Test Api"
+  "lDummyList" : "Elements",
+  "lDummyInsert" : "New element",
+  "bRemoveDummy" : "Remove",
+  "bInsertDummy" : "Insert",
+  "lInsertDummyValue" : "New dummy element:"
 }
