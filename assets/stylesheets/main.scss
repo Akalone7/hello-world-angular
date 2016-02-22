@@ -27,6 +27,12 @@ body{
   width: 100%;
 }
 
+.tab-content[ui-view]{
+  overflow: auto;
+  width: 100%;
+  background: $white;
+}
+
 h1{
   margin: 0;
 }
@@ -70,5 +76,37 @@ h1, h2, h3, h4, h5, h6,
 li {
   list-style: none;
 }
+
+.navbar{
+  border-radius: 0;
+  background: $main;
+}
+
+.dummyListTab
+.navbar {
+    border-radius: 0;
+    background: none;
+}
+
+  .navbar-inverse
+  .navbar-nav {
+    li {
+      a {
+        color: $secondary;
+      }
+    }
+  }
+
+
+
+  .navbar-inverse .navbar-nav > .active > a,
+  .navbar-inverse .navbar-nav > .active > a:hover,
+  .navbar-inverse .navbar-nav > .active > a:focus{
+    text-decoration: underline;
+    color:  $white;
+    background: none;
+    filter: alpha(opacity=40);
+  }
+
 
 

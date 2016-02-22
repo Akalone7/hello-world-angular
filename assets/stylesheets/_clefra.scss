@@ -1,10 +1,12 @@
 .dummy-element{
-  color: $lightBlue;
+  color: $main
+;
+  cursor: pointer;
 }
 
 li.no-dummy{
   label{
-    color: $lightBlue;
+    color: $main;
   }
 }
 
@@ -12,4 +14,11 @@ li.no-dummy{
   label{
   color: $white;
   }
+}
+
+#dummy-list-nav,
+.navbar
+.navbar-inverse{
+  background: $white;
+  border: none;
 }

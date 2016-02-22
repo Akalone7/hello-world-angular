@@ -1,4 +1,4 @@
-<nav id="main-nav" class="navbar navbar-inverse">
+<form><nav id="dummy-list-nav" class="navbar navbar-inverse">
   <div class="container-fluid">
 {{lDummyList | translate}}
     <div class="navbar-header">
@@ -6,8 +6,8 @@
     </div>
     <ul class="nav navbar-nav navbar-center" >
       <ul class="container">
-        <li class="dummy-element" ng-repeat="dummy in dummies | filter:q as results">
-          [{{$index + 1}} - {{dummy.id}}] {{dummy.value}}
+        <li class="dummy-element" ng-repeat="dummy in dummies | filter:q as results" ng-click="dummyDetails(dummy.id)">
+          {{$index + 1}}. {{dummy.value}}
             <button id="bRemoveDummy" ng-click="removeDummy(dummy.id)" type="button" class="btn btn-delete glyphicon glyphicon-trash">
                 <!--{{'bRemoveDummy' | translate}}-->
             </button>
@@ -19,3 +19,4 @@
     </ul>
   </div>
 </nav>
+</form>

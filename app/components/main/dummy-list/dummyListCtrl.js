@@ -25,6 +25,14 @@ angular.module('hsClefraApp').controller('DummyListCtrl', function ($scope, serv
     }, id);
   }
 
+  $scope.dummyDetails = function (id){
+    serverApiSvc.getMaster(function (data) {
+      if (angular.isDefined(data)) {
+        console.log(data);
+      }
+    }, id);
+  }
+
   $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams){
     loadData();
   });
