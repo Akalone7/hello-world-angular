@@ -61,8 +61,21 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
     controller: "ContainerCtrl as container",
     templateUrl: 'app/components/container/container.tpl.html',
     deepStateRedirect: {
-      default: "root.bootstrap.main"
+      default: "root.bootstrap.welcome"
     }
+  });
+
+  //Welcome state
+  states.push({
+    name: 'root.bootstrap.welcome',
+    url: 'welcome',
+    views: {
+      'welcometab': {
+        controller: 'WelcomeCtrl as main',
+        templateUrl: 'app/components/welcome/welcome.tpl.html'
+      }
+    },
+    sticky: true
   });
 
   // main states

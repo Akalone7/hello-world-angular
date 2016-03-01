@@ -22,9 +22,14 @@ angular.module('hsClefraApp')
       return httpConnectionLayerSvc.send(request, dataToSend, successCallback);
     };
 
-    this.deleteMaster = function (successCallback, id) {
-      var request = buildRequest(serverApiUrls.insertMaster, id);
-      return httpConnectionLayerSvc.delete(request, successCallback);
-    };
+        this.deleteMaster = function (successCallback, id) {
+            var request = buildRequest(serverApiUrls.insertMaster, id);
+            return httpConnectionLayerSvc.delete(request, successCallback);
+        };
+
+        this.authenticate = function (successCallback, dataToSend) {
+            var request = buildRequest(serverApiUrls.authentication);
+            return httpConnectionLayerSvc.send(request, dataToSend, successCallback);
+        };
 
     });
