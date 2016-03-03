@@ -1,18 +1,17 @@
 /**
  * Created by francesco.mirenda on 01/03/2016.
  */
-angular.module( 'hsClefraApp')
-  .controller( 'LoginCtrl', function LoginController( $scope, $http, store, $state, serverApiSvc) {
+angular.module('hsClefraApp')
+  .controller('LoginCtrl', function ( $scope, $state, serverApiSvc, AuthenticationService) {
 
     $scope.user = {};
 
-    $scope.login = function (){
-      console.log($scope.user);
-      serverApiSvc.authenticate(function(user){
-        console.log(user);
-        $state.go('root.bootstrap.main');
-      }, $scope.user);
-    }
+    $scope.login = function () {
+      AuthenticationService.authenticate($scope.user, function () {
+        console.log($scope.user);
+          $state.go('root.bootstrap.main');
+      });
+    };
 
     //$scope.login = function() {
     //  $http({

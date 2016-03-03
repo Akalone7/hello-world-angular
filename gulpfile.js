@@ -173,11 +173,14 @@ gulp.task('default', ['clean-build-app-dev', 'validate-devserver-scripts'], func
   connect.server({
     root: 'dist/',
     port: 8089,
-    livereload: true
+    livereload: {
+      enabled: true,
+      port: 35730
+    }
   });
 
   // start live-reload server
-  plugins.livereload.listen({ start: true });
+  plugins.livereload.listen({ start: true, port: 35730});
 
   // watch index
   watch(paths.index, function() {

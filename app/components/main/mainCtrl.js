@@ -3,8 +3,12 @@
  */
 "use strict";
 
-angular.module('hsClefraApp').controller('MainCtrl', function ($scope, serverApiSvc) {
+angular.module('hsClefraApp').controller('MainCtrl', function ($scope, AuthenticationService) {
   $scope.test = "Main";
+
+  $scope.logout = function(){
+    AuthenticationService.logout();
+  }
 
 
 });

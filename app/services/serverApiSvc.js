@@ -27,7 +27,7 @@ angular.module('hsClefraApp')
             return httpConnectionLayerSvc.delete(request, successCallback);
         };
 
-        this.authenticate = function (successCallback, dataToSend) {
+        this.authenticate = function (dataToSend, successCallback) {
             var request = buildRequest(serverApiUrls.authentication);
             return httpConnectionLayerSvc.send(request, dataToSend, successCallback);
         };

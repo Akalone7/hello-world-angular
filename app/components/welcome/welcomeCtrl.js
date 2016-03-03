@@ -14,7 +14,7 @@ angular.module('hsClefraApp').controller('WelcomeCtrl', function ($scope, $state
       console.log(user);
       $state.go('root.bootstrap.main');
     }, $scope.user);
-  }
+  };
 
 
 });

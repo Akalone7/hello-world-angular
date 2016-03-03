@@ -28,7 +28,10 @@ var app = angular
     'angular-float-labels'
   ]);
 
-app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $translateProvider, langLocaleProvider, tmhDynamicLocaleProvider, defaultLanguage) {
+app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $httpProvider, $translateProvider, langLocaleProvider, tmhDynamicLocaleProvider,  defaultLanguage) {
+
+
+  $httpProvider.interceptors.push('HttpInterceptor');
 
   langLocaleProvider.setDefaultLang(defaultLanguage);
   $translateProvider.useLocalStorage();
@@ -68,13 +71,14 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
   //Welcome state
   states.push({
     name: 'root.bootstrap.welcome',
-    url: 'welcome',
+    url: 'login',
     views: {
       'welcometab': {
-        controller: 'WelcomeCtrl as main',
-        templateUrl: 'app/components/welcome/welcome.tpl.html'
+        controller: 'LoginCtrl as main',
+        templateUrl: 'app/components/welcome/login/login.tpl.html'
       }
     },
+    authenticate:false,
     sticky: true
   });
 
@@ -89,6 +93,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
         templateUrl: 'app/components/main/main.tpl.html'
       }
     },
+    authenticate:true,
     sticky: true
   });
 
@@ -101,6 +106,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
         templateUrl: 'app/components/main/dummy-list/dummy-list.tpl.html'
       }
     },
+    authenticate:true,
     sticky: true
   });
 
@@ -113,6 +119,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
         templateUrl: 'app/components/main/dummy-insert/dummy-insert.tpl.html'
       }
     },
+    authenticate:true,
     sticky: true
   });
 
@@ -121,9 +128,17 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
   });
 
 })
-  .run(function (langLocale, tmhDynamicLocale, polyfill) {
+  .run(function (langLocale, tmhDynamicLocale, polyfill,$rootScope, $state, AuthenticationService) {
     langLocale.setLanguage();
     tmhDynamicLocale.set('it');
     polyfill.init();
+
+    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+      if (toState.authenticate && !AuthenticationService.isAuthenticated()){
+        // User isn’t authenticated
+        $state.go('root.bootstrap.welcome');
+        event.preventDefault();
+      }
+    });
   });
 
