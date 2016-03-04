@@ -6,19 +6,22 @@ angular.module('hsClefraApp')
   .factory('HttpInterceptor', function($q, AuthenticationProxy) {
   return {
     // optional method
-    'request': function(config) {
-      config.headers.authorization = "Bearer " + AuthenticationProxy.getJwt();
-      return config;
+    'request': function($config) {
+      var token = AuthenticationProxy.getJwt();
+      if(angular.isDefined(token) && token.hasOwnProperty("jwt")) {
+        $config.headers["Authorization"] = "Bearer " + AuthenticationProxy.getJwt().jwt;
+      }
+      return $config;
     },
 
     // optional method
-    'requestError': function(rejection) {
-      // do something on error
-      if (canRecover(rejection)) {
-        return responseOrNewPromise
-      }
-      return $q.reject(rejection);
-    },
+    //'requestError': function(rejection) {
+    //  // do something on error
+    //  if (canRecover(rejection)) {
+    //    return responseOrNewPromise
+    //  }
+    //  return $q.reject(rejection);
+    //},
 
 
 
@@ -29,12 +32,12 @@ angular.module('hsClefraApp')
     },
 
     // optional method
-    'responseError': function(rejection) {
-      // do something on error
-      if (canRecover(rejection)) {
-        return responseOrNewPromise
-      }
-      return $q.reject(rejection);
-    }
+    //'responseError': function(rejection) {
+    //  // do something on error
+    //  if (canRecover(rejection)) {
+    //    return responseOrNewPromise
+    //  }
+    //  return $q.reject(rejection);
+    //}
   };
 });

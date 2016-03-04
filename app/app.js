@@ -90,8 +90,11 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
     views: {
       'maintab': {
         controller: 'MainCtrl as main',
-        templateUrl: 'app/components/main/main.tpl.html'
-      }
+        templateUrl: 'app/components/main/main.tpl.html',
+      },
+    },
+    deepStateRedirect: {
+      default: "root.bootstrap.main.dummyList"
     },
     authenticate:true,
     sticky: true
