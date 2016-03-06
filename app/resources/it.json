@@ -4,5 +4,6 @@
   "bRemoveDummy" : "Elimina",
   "bInsertDummy" : "Inserisci",
   "lInsertDummyValue" : "Nuovo dummy element:",
-  "lNoResults" : "Nessun elemento da visualizzare"
+  "lNoResults" : "Nessun elemento da visualizzare",
+  "lUsername" : "Nome Utente"
 }

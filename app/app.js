@@ -73,7 +73,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
     name: 'root.bootstrap.welcome',
     url: 'login',
     views: {
-      'welcometab': {
+      'welcomeTab': {
         controller: 'LoginCtrl as main',
         templateUrl: 'app/components/welcome/login/login.tpl.html'
       }
@@ -88,13 +88,26 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
     name: 'root.bootstrap.main',
     url: 'main',
     views: {
-      'maintab': {
+      'mainTab': {
         controller: 'MainCtrl as main',
         templateUrl: 'app/components/main/main.tpl.html',
       },
     },
     deepStateRedirect: {
-      default: "root.bootstrap.main.dummyList"
+      default: "root.bootstrap.main.controlPanel"
+    },
+    authenticate:true,
+    sticky: true
+  });
+
+  states.push({
+    name: 'root.bootstrap.main.controlPanel',
+    url: '/controlPanel',
+    views: {
+      'controlPanelTab': {
+        controller: 'ControlPanelCtrl as controlPanel',
+        templateUrl: 'app/components/main/control-panel/control-panel.tpl.html',
+      },
     },
     authenticate:true,
     sticky: true

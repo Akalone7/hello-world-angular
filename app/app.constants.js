@@ -16,7 +16,8 @@ angular.module('hsClefraApp')
       getMaster: apiPath + '/master',
       insertMaster: apiPath + '/master',
       deleteMaster: apiPath + '/master',
-      authentication: apiPath + '/authentication'
+      authentication: apiPath + '/authentication',
+      getUser: apiPath + '/user'
     }
     })())
   .constant('defaultLanguage', 'it');

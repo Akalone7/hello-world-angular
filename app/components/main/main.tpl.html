@@ -20,4 +20,8 @@
   <div ui-view="dummyInsertTab"></div>
 </div>
 
+<div id="control-panel-tab-container" class="tab-content tabbable" sticky-state="root.bootstrap.main.controlPanel" ng-hide="state.current.name !== 'root.bootstrap.main.controlPanel'">
+  <div ui-view="controlPanelTab"></div>
+</div>
+
 <footer class="footer">footer</footer>
