@@ -35,3 +35,21 @@ li.no-dummy{
   background: $white;
   border: none;
 }
+
+.hidden{
+  display: none;
+}
+
+.angular-float-labels-label {
+  margin-top: 4%;
+  position: absolute;
+  left: 12px;
+  top: -17px;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  display: none;
+  color: #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 90%;
+}

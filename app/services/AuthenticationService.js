@@ -15,8 +15,8 @@ angular.module('hsClefraApp')
 
     this.authenticate = function (user, successCallback){
       console.log(user);
-      serverApiSvc.authenticate(user, function (jwt){
-        if(angular.isDefined(jwt)) {
+      serverApiSvc.authenticate(user, function (data){
+        if(data.jwt) {
           inMemoryToken = true;
           inMemoryJwt = jwt;
           AuthenticationProxy.setJwt(inMemoryJwt);
