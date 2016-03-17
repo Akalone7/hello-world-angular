@@ -7,5 +7,7 @@
   "lNoResults" : "Nessun elemento da visualizzare",
   "lUsername" : "Nome Utente",
   "lFailedLogin" : "Credenziali errate",
+  "lLogout" : "Log out",
+  "lLogin" : "Log in",
   "lSignUp" : "Registrati"
 }

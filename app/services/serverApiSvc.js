@@ -2,15 +2,14 @@
 
 angular.module('hsClefraApp')
     .service('serverApiSvc', function ($interval, httpConnectionLayerSvc, serverApiUrls) {
-
-      function buildRequest(url, id) {
-        var ret = url;
-        if(angular.isDefined(id))
+    function buildRequest(url, id) {
+      var ret = url;
+      if(angular.isDefined(id))
         {
           ret += '/' + id;
         }
         return ret;
-      }
+    }
 
     this.getMaster = function (successCallback, id) {
       var request = buildRequest(serverApiUrls.getMaster, id);
@@ -22,18 +21,18 @@ angular.module('hsClefraApp')
       return httpConnectionLayerSvc.send(request, dataToSend, successCallback);
     };
 
-        this.deleteMaster = function (successCallback, id) {
-            var request = buildRequest(serverApiUrls.insertMaster, id);
-            return httpConnectionLayerSvc.delete(request, successCallback);
-        };
+    this.deleteMaster = function (successCallback, id) {
+      var request = buildRequest(serverApiUrls.insertMaster, id);
+      return httpConnectionLayerSvc.delete(request, successCallback);
+    };
 
-        this.authenticate = function (dataToSend, successCallback) {
-            var request = buildRequest(serverApiUrls.authentication);
-            return httpConnectionLayerSvc.send(request, dataToSend, successCallback);
-        };
+    this.authenticate = function (dataToSend, successCallback) {
+      var request = buildRequest(serverApiUrls.authentication);
+      return httpConnectionLayerSvc.send(request, dataToSend, successCallback);
+    };
 
-        this.getUserDetails = function (successCallback, id) {
-            var request = buildRequest(serverApiUrls.getUser, id);
-            return httpConnectionLayerSvc.receive(request, successCallback);
-        };
-    });
+    this.getUserDetails = function (successCallback, id) {
+      var request = buildRequest(serverApiUrls.getUser, id);
+      return httpConnectionLayerSvc.receive(request, successCallback);
+    };
+  });
