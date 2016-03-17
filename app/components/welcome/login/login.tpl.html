@@ -16,8 +16,9 @@
                     <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-default" ng-click="login()">Log in</button>
-    <a ui-sref="signup()">Registrati</a>
-</div>
+                <a ui-sref="signup()">lSignUp</a>
+                <span>{{failedLogin}}</span>
+            </div>
         </div>
     </nav>
 </form>

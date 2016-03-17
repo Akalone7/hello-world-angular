@@ -13,14 +13,16 @@ angular.module('hsClefraApp')
     };
 
 
-    this.authenticate = function (user, successCallback){
+    this.authenticate = function (user, successCallback, failureCallback){
       console.log(user);
       serverApiSvc.authenticate(user, function (data){
         if(data.jwt) {
           inMemoryToken = true;
-          inMemoryJwt = jwt;
+          inMemoryJwt = data.jwt;
           AuthenticationProxy.setJwt(inMemoryJwt);
           successCallback();
+        } else {
+          failureCallback();
         }
       });
     };

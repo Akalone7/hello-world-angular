@@ -5,5 +5,7 @@
   "bInsertDummy" : "Inserisci",
   "lInsertDummyValue" : "Nuovo dummy element:",
   "lNoResults" : "Nessun elemento da visualizzare",
-  "lUsername" : "Nome Utente"
+  "lUsername" : "Nome Utente",
+  "lFailedLogin" : "Credenziali errate",
+  "lSignUp" : "Registrati"
 }

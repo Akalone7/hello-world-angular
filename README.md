@@ -8,4 +8,4 @@ nella cartella /hello-world-angular eseguire il comando bower install
 
 gulp -> build + avvio server.
 
-connettersi a localhost
+connettersi a localhost:8089
