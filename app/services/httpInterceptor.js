@@ -8,8 +8,8 @@ angular.module('hsClefraApp')
     // optional method
     'request': function($config) {
       var token = AuthenticationProxy.getJwt();
-      if(angular.isDefined(token) && token.hasOwnProperty("jwt")) {
-        $config.headers["Authorization"] = "Bearer " + AuthenticationProxy.getJwt().jwt;
+      if(angular.isDefined(token)) {
+        $config.headers["Authorization"] = "Bearer " + AuthenticationProxy.getJwt();
       }
       return $config;
     },

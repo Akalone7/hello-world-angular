@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <div class="navbar-brand"></div>
             </div>
-            <div class="login jumbotron center-block">
+            <div class="login center-block">
                 <a class="text-header"></a> <h1>CleFra App</h1>
                 <div class="form-group">
                     <label class="hidden" for="username">Username</label>
@@ -15,8 +15,8 @@
                     <label class="hidden"  for="password">Password</label>
                     <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-default" ng-click="login()">Log in</button>
-                <a ui-sref="signup()">lSignUp</a>
+                <button type="button" class="btn btn-default" ng-click="login()">{{'lLogin' | translate}}</button>
+                <a ui-sref="signup()">{{'lSignUp' | translate}}</a>
                 <span>{{failedLogin}}</span>
             </div>
         </div>

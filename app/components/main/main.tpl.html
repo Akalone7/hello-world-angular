@@ -5,9 +5,16 @@
       <div class="navbar-brand"><a class="text-header"></a></div>
     </div>
     <ul class="nav navbar-nav navbar-center" >
-      <li ui-sref-active="active"><a ui-sref="root.bootstrap.main.dummyList">{{'lDummyList' | translate}}</a></li>
-      <li ui-sref-active="active"><a ui-sref="root.bootstrap.main.dummyInsert">{{'lDummyInsert' | translate}}</a></li>
-      <li ui-sref-active="active"><a ui-sref="root.bootstrap.welcome" ng-click="logout()">{{'lLogout' | translate}}</a></li>
+      <li ui-sref-active="active">
+        <a ui-sref="root.bootstrap.main.dummyList">{{'lDummyList' | translate}}</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="root.bootstrap.main.dummyInsert">{{'lDummyInsert' | translate}}</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="root.bootstrap.welcome" ng-click="logout()">{{'lLogout' | translate}}</a>
+        <span>{{user.name}}</span>
+      </li>
     </ul>
   </div>
 </nav>

@@ -63,6 +63,13 @@ h4{
   }
 }
 
+@media only screen and (max-width: 960px) {
+  #wrapper {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
 .review-item{
   padding: 10px;
   border-bottom: 1px solid $grey;
