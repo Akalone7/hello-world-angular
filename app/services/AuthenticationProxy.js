@@ -3,15 +3,19 @@
  */
 "use strict";
 angular.module('hsClefraApp')
-  .service('AuthenticationProxy', function () {
+  .service('AuthenticationProxy', function ($window) {
     var inMemoryJwt;
 
     this.setJwt = function(jwtToSet){
-      inMemoryJwt = jwtToSet;
+      $window.localStorage['jwtToken'] = jwtToSet;
     };
 
     this.getJwt = function (){
-      return inMemoryJwt;
+      return $window.localStorage['jwtToken'];
+    }
+
+    this.removeJwt = function (){
+      $window.localStorage.removeItem('jwtToken');
     }
 
   });

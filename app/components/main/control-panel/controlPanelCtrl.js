@@ -4,7 +4,7 @@
 
 "use strict";
 
-angular.module('hsClefraApp').controller('ControlPanelCtrl', function ($scope, $state, serverApiSvc) {
+angular.module('hsClefraApp').controller('ControlPanelCtrl', function ($scope, $state, $element, $window, serverApiSvc) {
 
     $scope.user = {};
 
@@ -14,4 +14,12 @@ angular.module('hsClefraApp').controller('ControlPanelCtrl', function ($scope, $
                 $scope.user = data;
             }
         });
+
+  var containerResize = function () {
+    angular.element($element).find('#wizardSteps').height( angular.element($window).height() - 2*angular.element($element).find("nav").outerHeight());
+  };
+
+  $scope.$on("$viewContentLoaded", containerResize);
+
+  angular.element($window).bind("resize", containerResize);
 });

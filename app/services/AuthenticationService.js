@@ -5,11 +5,10 @@
 angular.module('hsClefraApp')
 .service('AuthenticationService', function (AuthenticationProxy, serverApiSvc) {
 
-    var inMemoryToken;
     var inMemoryJwt;
 
     this.isAuthenticated = function () {
-        return inMemoryToken;
+        return (angular.isDefined(AuthenticationProxy.getJwt()));
     };
 
 
@@ -17,9 +16,7 @@ angular.module('hsClefraApp')
       console.log(user);
       serverApiSvc.authenticate(user, function (data){
         if(data.jwt) {
-          inMemoryToken = true;
-          inMemoryJwt = data.jwt;
-          AuthenticationProxy.setJwt(inMemoryJwt);
+          AuthenticationProxy.setJwt(data.jwt);
           successCallback();
         } else {
           failureCallback();
@@ -28,12 +25,7 @@ angular.module('hsClefraApp')
     };
 
     this.logout = function(){
-      inMemoryJwt = undefined;
-      inMemoryToken = undefined;
-      AuthenticationProxy.setJwt(inMemoryJwt);
+      AuthenticationProxy.removeJwt();
     };
 
-    this.getJwt = function (){
-      return inMemoryJwt;
-    }
 });
