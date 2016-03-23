@@ -33,8 +33,8 @@ angular.module('hsClefraApp').controller('DummyListCtrl', function ($scope, serv
     }, id);
   }
 
-  $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams){
-    loadData();
+  $rootScope.$on('$viewContentLoaded',  function(event, toState, toParams, fromState, fromParams){
+      loadData();
   });
 
 });
