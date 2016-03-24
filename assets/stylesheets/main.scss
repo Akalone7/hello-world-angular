@@ -119,8 +119,6 @@ li {
     }
   }
 
-
-
   .navbar-inverse .navbar-nav > .active > a,
   .navbar-inverse .navbar-nav > .active > a:hover,
   .navbar-inverse .navbar-nav > .active > a:focus{
@@ -130,5 +128,9 @@ li {
     filter: alpha(opacity=40);
   }
 
-
-
+.page-header {
+  padding-bottom: 9px;
+  margin: 20px 0 20px;
+  border-bottom: 1px solid $white;
+  color:  $white;
+}

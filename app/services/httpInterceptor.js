@@ -3,7 +3,7 @@
  */
 // register the interceptor as a service
 angular.module('hsClefraApp')
-  .factory('HttpInterceptor', function($q, AuthenticationProxy) {
+  .factory('HttpInterceptor', function($q, $location, AuthenticationProxy) {
   return {
     // optional method
     'request': function($config) {
@@ -31,13 +31,11 @@ angular.module('hsClefraApp')
       return response;
     },
 
-    // optional method
-    //'responseError': function(rejection) {
-    //  // do something on error
-    //  if (canRecover(rejection)) {
-    //    return responseOrNewPromise
-    //  }
-    //  return $q.reject(rejection);
-    //}
+    'responseError': function (response) {
+      if (response.status === 401 || response.status === 403) {
+        $location.path('/login');
+      }
+      return $q.reject(response);
+    }
   };
 });

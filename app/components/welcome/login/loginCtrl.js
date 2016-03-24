@@ -5,7 +5,7 @@ angular.module('hsClefraApp')
   .controller('LoginCtrl', function ( $scope, $state, serverApiSvc, AuthenticationService, $filter) {
 
     $scope.user = {};
-    $scope.failedLogin;
+    $scope.failedLogin = "";
 
     $scope.login = function () {
       AuthenticationService.authenticate($scope.user, function () {
