@@ -55,6 +55,72 @@ li.no-dummy{
   max-width: 90%;
 }
 
+#main-nav.principal{
+  background: $white;
+}
+
 @media only screen and (max-width: 799px){
   .login { width: 100%; }
+}
+
+.navbar-nav{
+  li a:focus{
+    background: none;
+  }
+  .user{
+    position: relative;
+    padding: 10px 40px 10px 60px;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+    &:hover{
+      background: $black;
+    }
+    .initials{
+      position: absolute;
+      left: 10px;
+      height: 40px;
+      width: 40px;
+      padding-top: 4px;
+      background: #faae73;
+      border: 2px solid #e79552;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+    }
+    .name{
+      font-weight: bold;
+    }
+    .company{
+      display: block;
+      font-weight: normal;
+      font-size: 12px;
+    }
+    i.fa-caret-down{
+      position: absolute;
+      right: 15px;
+      top: 20px;
+    }
+  }
+  .dropdown-menu{
+    background: $lightBlack;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    li{
+      a{
+        color: #fff;
+        &:hover{
+          background: $black;
+        }
+      }
+    }
+  }
+
+  #main-nav .navbar-nav .user i.fa-caret-down {
+    position: absolute;
+    right: 15px;
+    top: 20px; }
 }

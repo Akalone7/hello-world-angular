@@ -4,21 +4,9 @@
 "use strict";
 
 angular.module('hsClefraApp').controller('MainCtrl', function ($scope, AuthenticationService, serverApiSvc) {
-  $scope.user = {};
-
-  var loadData = function (){
-    serverApiSvc.getUserDetails(function (data) {
-      if (angular.isDefined(data)) {
-        console.log(data);
-        $scope.user.name = data.name;
-      }
-    });
-  };
-  loadData();
 
   $scope.logout = function(){
     AuthenticationService.logout();
   }
-
 
 });

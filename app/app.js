@@ -144,7 +144,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
   });
 
 })
-  .run(function (langLocale, tmhDynamicLocale, polyfill,$rootScope, $state, AuthenticationService) {
+  .run(function (langLocale, tmhDynamicLocale, polyfill,$rootScope, $state, AuthenticationService, serverApiSvc) {
     langLocale.setLanguage();
     tmhDynamicLocale.set('it');
     polyfill.init();
@@ -156,5 +156,21 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
         event.preventDefault();
       }
     });
+
+    serverApiSvc.getUserDetails(function (data) {
+      if (angular.isDefined(data)) {
+        $rootScope.user = {};
+        console.log(data);
+        $rootScope.user.name = data.name;
+        $rootScope.user.surname = data.surname;
+        var options = $rootScope.user.name.split(' ');
+        if (options.length >= 2) {
+          $rootScope.initials = options[0][0] + $rootScope.user.surname;
+        } else {
+          $rootScope.initials = $rootScope.user.name[0][0] + $rootScope.user.surname[0][0];
+        }
+      }
+    });
+
   });
 

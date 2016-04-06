@@ -1,5 +1,5 @@
-<nav id="main-nav" class="navbar navbar-inverse">
-  <div class="container-fluid">
+<nav id="main-nav" class="navbar navbar-inverse" >
+  <div  ui-scrollfix="+100" class="container-fluid">
 
     <div class="navbar-header">
       <div class="navbar-brand"><a class="text-header"></a></div>
@@ -15,6 +15,19 @@
         <a ui-sref="root.bootstrap.welcome" ng-click="logout()">{{'lLogout' | translate}}</a>
         <span>{{user.name}}</span>
       </li>
+    </ul>
+    dd
+    <ul class="nav navbar-nav navbar-right" >
+      <li class="user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="initials">{{initials}}</span>
+        <span class="name">{{user.name}} {{user.surname}}</span>
+        <span class="company"></span>
+        <i class="fa fa-caret-down"></i>
+      </li>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><a ui-sref="root.bootstrap.main.settings">{{'settings' | translate}}</a></li>
+        <li><a href="" ng-click="logout()">Log out</a></li>
+      </ul>
     </ul>
   </div>
 </nav>
