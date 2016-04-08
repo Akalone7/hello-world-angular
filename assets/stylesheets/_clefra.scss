@@ -70,11 +70,11 @@ li.no-dummy{
   .user{
     position: relative;
     padding: 10px 40px 10px 60px;
-    color: #fff;
+    color: $main;
     text-align: left;
     cursor: pointer;
     &:hover{
-      background: $black;
+      background: $secondary;
     }
     .initials{
       position: absolute;
@@ -82,16 +82,17 @@ li.no-dummy{
       height: 40px;
       width: 40px;
       padding-top: 4px;
-      background: #faae73;
-      border: 2px solid #e79552;
+      background: $white;
+      border: 2px solid $main;;
       border-radius: 20px;
       font-size: 18px;
       font-weight: bold;
-      color: #fff;
+      color: $main;
       text-align: center;
     }
     .name{
       font-weight: bold;
+      color: $white;
     }
     .company{
       display: block;
@@ -102,18 +103,23 @@ li.no-dummy{
       position: absolute;
       right: 15px;
       top: 20px;
+      color: $secondary;
+      &:hover{
+        background: $main;
+      }
     }
   }
   .dropdown-menu{
-    background: $lightBlack;
+    background: $main;
     border: none;
     border-radius: 0;
     margin: 0;
+    height: 100%;
     li{
       a{
         color: #fff;
         &:hover{
-          background: $black;
+          background: $secondary;
         }
       }
     }
@@ -122,5 +128,83 @@ li.no-dummy{
   #main-nav .navbar-nav .user i.fa-caret-down {
     position: absolute;
     right: 15px;
-    top: 20px; }
+    top: 20px;
+  }
+}
+
+.panel-primary {
+  .panel-heading {
+    color: $white;
+    background-color: #5C6D73;
+    border-color: $main;
+  }
+}
+.panel-primary > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #5C6D73;
+}
+
+ .widgetHeader {
+  color: $white;
+}
+
+//NavBar
+.navbar {
+  border-radius: 0;
+  border: none;
+  margin-bottom: 0;
+  text-align: center;
+  height: 60px;
+  > .container,
+  > .container-fluid{
+    height: inherit;
+  }
+  .navbar-header{
+    position: absolute;
+    height: inherit;
+    top: 0;
+    left: 0;
+    .navbar-brand{
+      margin: 0;
+      height: inherit;
+    }
+  }
+  .navbar-center {
+    display: inline-block;
+    border: 0;
+    float: none;
+    height: inherit;
+  }
+  .navbar-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: inherit;
+  }
+  .navbar-left{
+    height: inherit;
+  }
+  .navbar-nav{
+    > li{
+      height: inherit;
+      > a{
+        height: inherit;
+        display: table-cell;
+        vertical-align: middle;
+      }
+      &.active{
+        > a{
+          background: none;
+          font-weight: 700;
+          border-bottom: 3px solid $primary;
+          &:hover{
+            background-color:$secondary;
+          }
+        }
+      }
+    }
+  }
+  &.navbar-inverse{
+    background-color: $main;
+  }
 }

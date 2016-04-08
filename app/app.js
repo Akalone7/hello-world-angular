@@ -114,25 +114,12 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
   });
 
   states.push({
-    name: 'root.bootstrap.main.dummyList',
-    url: '/dummyList',
+    name: 'root.bootstrap.main.season',
+    url: '/season',
     views: {
-      'dummyListTab': {
-        controller: 'DummyListCtrl as dummyList',
-        templateUrl: 'app/components/main/dummy-list/dummy-list.tpl.html'
-      }
-    },
-    authenticate:true,
-    sticky: true
-  });
-
-  states.push({
-    name: 'root.bootstrap.main.dummyInsert',
-    url: '/dummyInsert',
-    views: {
-      'dummyInsertTab': {
-        controller: 'DummyInsertCtrl as dummyInsert',
-        templateUrl: 'app/components/main/dummy-insert/dummy-insert.tpl.html'
+      'seasonTab': {
+        controller: 'SeasonCtrl as season',
+        templateUrl: 'app/components/main/season/season.tpl.html'
       }
     },
     authenticate:true,
@@ -149,28 +136,33 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
     tmhDynamicLocale.set('it');
     polyfill.init();
 
-    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-      if (toState.authenticate && !AuthenticationService.isAuthenticated()){
-        // User isn’t authenticated
-        $state.go('root.bootstrap.welcome');
-        event.preventDefault();
-      }
-    });
+    //$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+    //  if (toState.authenticate && !AuthenticationService.isAuthenticated()){
+    //    // User isn’t authenticated
+    //    $state.go('root.bootstrap.welcome');
+    //    event.preventDefault();
+    //  }
+    //});
 
-    serverApiSvc.getUserDetails(function (data) {
-      if (angular.isDefined(data)) {
-        $rootScope.user = {};
-        console.log(data);
-        $rootScope.user.name = data.name;
-        $rootScope.user.surname = data.surname;
-        var options = $rootScope.user.name.split(' ');
-        if (options.length >= 2) {
-          $rootScope.initials = options[0][0] + $rootScope.user.surname;
-        } else {
-          $rootScope.initials = $rootScope.user.name[0][0] + $rootScope.user.surname[0][0];
+    $rootScope.loadUserDetails = function (){
+      serverApiSvc.getUserDetails(function (data) {
+        if (angular.isDefined(data)) {
+          $rootScope.user = {};
+          console.log(data);
+          $rootScope.user.name = data.name;
+          $rootScope.user.surname = data.surname;
+          $rootScope.user.credits = data.credits;
+          var options = $rootScope.user.name.split(' ');
+          if (options.length >= 2) {
+            $rootScope.initials = options[0][0] + $rootScope.user.surname;
+          } else {
+            $rootScope.initials = $rootScope.user.name[0][0] + $rootScope.user.surname[0][0];
+          }
         }
-      }
-    });
+      });
+    }
+
+    $rootScope.loadUserDetails();
 
   });
 

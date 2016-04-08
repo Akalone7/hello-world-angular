@@ -26,16 +26,16 @@ angular.module('hsClefraApp')
 
 
     // optional method
-    'response': function(response) {
-      // do something on success
-      return response;
-    },
-
-    'responseError': function (response) {
+    'responseError': function(response) {
       if (response.status === 401 || response.status === 403) {
+        AuthenticationProxy.removeJwt();
         $location.path('/login');
       }
-      return $q.reject(response);
-    }
+      return response || $q.when(response);
+    },
+
+    //'responseError': function (response) {
+    //  return $q.reject(response);
+    //}
   };
 });

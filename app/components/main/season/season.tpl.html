@@ -1,0 +1,54 @@
+<form>
+    <nav id="main-nav" class="navbar navbar-inverse principal">
+        <div id="wizardSteps" class="container-fluid">
+            <div class="col-lg-0 sidebar">
+                <ul class="nav nav-sidebar hidden">
+                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+                <ul class="nav nav-sidebar hidden">
+                    <li><a href="">Logout</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-12 main">
+                <h1 class="page-header">{{'lSeason' | translate}}</h1>
+
+                <div class="row placeholders">
+                    <div class="col-lg-12 placeholder">
+
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4 class="widgetHeader">{{seasonDay.day}}{{'lTh' | translate}} {{'lSeasonDay' | translate}}</h4>
+
+                                <div ng-repeat="match in matches track by $index">
+                                    <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <span>{{match.home}}</span>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <span>{{match.result}}</span>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <span>{{match.away}}</span>
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer hidden">
+                                    <span class="pull-left">Mostra tutte</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</form>

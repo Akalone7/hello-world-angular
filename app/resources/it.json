@@ -9,5 +9,8 @@
   "lFailedLogin" : "Credenziali errate",
   "lLogout" : "Log out",
   "lLogin" : "Log in",
-  "lSignUp" : "Registrati"
+  "lSignUp" : "Registrati",
+  "lSeason": "Stagione",
+  "lTh": "a",
+  "lSeasonDay": "giornata"
 }

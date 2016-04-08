@@ -4,19 +4,6 @@
     <div class="navbar-header">
       <div class="navbar-brand"><a class="text-header"></a></div>
     </div>
-    <ul class="nav navbar-nav navbar-center" >
-      <li ui-sref-active="active">
-        <a ui-sref="root.bootstrap.main.dummyList">{{'lDummyList' | translate}}</a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="root.bootstrap.main.dummyInsert">{{'lDummyInsert' | translate}}</a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="root.bootstrap.welcome" ng-click="logout()">{{'lLogout' | translate}}</a>
-        <span>{{user.name}}</span>
-      </li>
-    </ul>
-    dd
     <ul class="nav navbar-nav navbar-right" >
       <li class="user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="initials">{{initials}}</span>
@@ -26,7 +13,7 @@
       </li>
       <ul class="dropdown-menu dropdown-menu-right">
         <li><a ui-sref="root.bootstrap.main.settings">{{'settings' | translate}}</a></li>
-        <li><a href="" ng-click="logout()">Log out</a></li>
+        <li><a ui-sref="root.bootstrap.welcome" ng-click="logout()">{{'lLogout' | translate}}</a></li>
       </ul>
     </ul>
   </div>
@@ -42,4 +29,8 @@
 
 <div id="control-panel-tab-container" class="tab-content tabbable" sticky-state="root.bootstrap.main.controlPanel" ng-hide="state.current.name !== 'root.bootstrap.main.controlPanel'">
   <div ui-view="controlPanelTab"></div>
+</div>
+
+<div id="season-tab-container" class="tab-content tabbable" sticky-state="root.bootstrap.main.season" ng-hide="state.current.name !== 'root.bootstrap.main.season'">
+  <div ui-view="seasonTab"></div>
 </div>
