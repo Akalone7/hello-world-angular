@@ -14,6 +14,12 @@
             <div class="col-lg-12 main">
                 <h1 class="page-header">{{'lSeason' | translate}}</h1>
 
+                <ul class="list-inline panel-primary days-of-season">
+                    <li ng-repeat="i in getNumber(daysOfSeason) track by $index" ng-click="getSeasonDay($index+1)">
+                        <span>{{$index+1}}</span>
+                    </li>
+                </ul>
+
                 <div class="row placeholders">
                     <div class="col-lg-12 placeholder">
 
@@ -21,7 +27,7 @@
                             <div class="panel-heading">
                                 <h4 class="widgetHeader">{{seasonDay.day}}{{'lTh' | translate}} {{'lSeasonDay' | translate}}</h4>
 
-                                <div ng-repeat="match in matches track by $index">
+                                <div ng-repeat="match in seasonDay.matches track by $index">
                                     <div class="row">
                                     <div class="col-xs-4 text-center">
                                         <span>{{match.home}}</span>

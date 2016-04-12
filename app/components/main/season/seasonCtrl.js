@@ -20,5 +20,19 @@ angular.module('hsClefraApp').controller('SeasonCtrl', function ($scope, serverA
     result : "0 - 0",
     away : "Torino"
   };
-  $scope.matches = [match1, match2, match3];
+  $scope.seasonDay = {
+    day : 1,
+    matches : [match1, match2, match3]
+  };
+
+  $scope.daysOfSeason = 10;
+  $scope.getNumber = function(num) {
+    return new Array(num);
+  };
+
+  $scope.getSeasonDay = function (day){
+    $scope.seasonDay.day = day;
+  }
+
+
 });

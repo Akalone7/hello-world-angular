@@ -9,6 +9,7 @@
 
 body{
   background: #EAE7E5;
+  padding-top: 50px;
 }
 
 * {
@@ -133,5 +134,6 @@ li {
   padding-bottom: 9px;
   margin: 20px 0 20px;
   border-bottom: 1px solid $white;
-  color:  $white;
+  color:  $main;
 }
+
