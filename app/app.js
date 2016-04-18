@@ -71,12 +71,41 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
   //Welcome state
   states.push({
     name: 'root.bootstrap.welcome',
-    url: 'login',
+    url: 'welcome',
     views: {
       'welcomeTab': {
+        controller: 'WelcomeCtrl as welcome',
+        templateUrl: 'app/components/welcome/welcome.tpl.html',
+      },
+    },
+    deepStateRedirect: {
+      default: "root.bootstrap.welcome.login"
+    },
+    authenticate:false,
+    sticky: true
+  });
+
+  states.push({
+    name: 'root.bootstrap.welcome.login',
+    url: '/login',
+    views: {
+      'loginTab': {
         controller: 'LoginCtrl as main',
         templateUrl: 'app/components/welcome/login/login.tpl.html'
       }
+    },
+    authenticate:false,
+    sticky: true
+  });
+
+  states.push({
+    name: 'root.bootstrap.welcome.register',
+    url: '/register',
+    views: {
+      'registerTab': {
+        controller: 'RegisterCtrl as register',
+        templateUrl: 'app/components/welcome/register/register.tpl.html',
+      },
     },
     authenticate:false,
     sticky: true
@@ -146,7 +175,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
 
     $rootScope.loadUserDetails = function (){
       serverApiSvc.getUserDetails(function (data) {
-        if (angular.isDefined(data)) {
+        if (data) {
           $rootScope.user = {};
           console.log(data);
           $rootScope.user.name = data.name;
@@ -154,7 +183,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
           $rootScope.user.credits = data.credits;
           var options = $rootScope.user.name.split(' ');
           if (options.length >= 2) {
-            $rootScope.initials = options[0][0] + $rootScope.user.surname;
+            $rootScope.initials = options[0][0] + $rootScope.user.surname[0];
           } else {
             $rootScope.initials = $rootScope.user.name[0][0] + $rootScope.user.surname[0][0];
           }
