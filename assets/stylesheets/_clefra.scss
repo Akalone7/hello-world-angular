@@ -18,16 +18,20 @@ li.no-dummy{
 
 .form-group{
   label{
-  color: $white;
+    color: $white;
   }
 }
 
 .login{
   margin: 80px auto;
   width: 450px;
-  background: #fafafa;
+  background: $main-dark;
   border-radius: 5px;
   padding: 2%;
+  h1{
+    padding: 20px;
+    color: $main;
+  }
 }
 
 #dummy-list-nav,
@@ -79,20 +83,21 @@ li.no-dummy{
     .initials{
       position: absolute;
       left: 10px;
+      bottom: 5px;
       height: 40px;
       width: 40px;
       padding-top: 4px;
-      background: $white;
-      border: 2px solid $main;;
+      background: $main;
+      border: 2px solid $main-dark;
       border-radius: 20px;
       font-size: 18px;
       font-weight: bold;
-      color: $main;
+      color: $main-dark;
       text-align: center;
     }
     .name{
       font-weight: bold;
-      color: $white;
+      color: $main-dark;
     }
     .company{
       display: block;
@@ -142,28 +147,40 @@ li.no-dummy{
   border-top-color: #5C6D73;
 }
 
- .widgetHeader {
+.widgetHeader {
   color: $white;
 }
 
 //NavBar
+#header-nav{
+  height: 50px;
+}
 .navbar {
   border-radius: 0;
   border: none;
   margin-bottom: 0;
   text-align: center;
   > .container,
-  > .container-fluid{
+  > .container-fluid {
     height: inherit;
   }
-  .navbar-header{
+  .navbar-header {
     position: absolute;
     height: inherit;
     top: 0;
     left: 0;
-    .navbar-brand{
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+    .navbar-brand {
       margin: 0;
       height: inherit;
+      color: $main-dark;
+
+      &:hover {
+        text-decoration: underline;
+        -webkit-transition: 0.5s ease;
+        transition: 0.5s ease;
+      }
     }
   }
   .navbar-center {
@@ -172,51 +189,61 @@ li.no-dummy{
     float: none;
     height: inherit;
   }
-  .navbar-right{
+  .navbar-right {
     position: absolute;
     top: 0;
     right: 0;
     margin: 0;
     height: inherit;
   }
-  .navbar-left{
+  .navbar-left {
     height: inherit;
   }
-  .navbar-nav{
-    > li{
+  .navbar-nav {
+    > li {
       height: inherit;
-      > a{
+      &:after{
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 0;
+        height: 3px;
+        background: $secondary;
+        content: "";
+        transition: width 0.2s;
+      }
+      &:hover {
+        &:after{
+          width: 100%;
+        }
+      }
+      > a {
         height: inherit;
         display: table-cell;
         vertical-align: middle;
+        color: $main-dark;
       }
-      &.active{
-        > a{
+      &.active {
+        > a {
+          text-decoration: none;
           background: none;
+          color: $main-dark;
           font-weight: 700;
-          border-bottom: 3px solid $primary;
-          &:hover{
-            background-color:$secondary;
+          &:hover {
+            text-decoration: inherit;
+            color: $secondary;
+          }
+          &:focus {
+            text-decoration: inherit;
+            color: $secondary;
           }
         }
       }
     }
   }
-  &.navbar-inverse{
+
+  &.navbar-inverse {
     background-color: $main;
-  }
-}
-
-.days-of-season{
-  background-color: $main;
-  color: $white;
-  li {
-    cursor: pointer;
-  }
-}
-
-.login{
-  h1{
-    padding: 20px;
   }
 }

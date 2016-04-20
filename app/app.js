@@ -191,7 +191,7 @@ app.config(function ($stateProvider, $stickyStateProvider, $urlRouterProvider, $
       });
     }
 
-    $rootScope.loadUserDetails();
+    //$rootScope.loadUserDetails();
 
   });
 
