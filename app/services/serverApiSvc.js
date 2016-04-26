@@ -35,4 +35,13 @@ angular.module('hsClefraApp')
       var request = buildRequest(serverApiUrls.getUser, id);
       return httpConnectionLayerSvc.receive(request, successCallback);
     };
+
+    this.insertUser = function (successCallback, dataToSend) {
+      var request = buildRequest(serverApiUrls.insertUser);
+      return httpConnectionLayerSvc.send(request, dataToSend, successCallback);
+    };
+    this.checkUsername = function (successCallback, username) {
+      var request = buildRequest(serverApiUrls.checkUsername, username);
+      return httpConnectionLayerSvc.receive(request, successCallback);
+    };
   });

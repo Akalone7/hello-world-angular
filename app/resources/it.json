@@ -10,5 +10,10 @@
   "lSeason": "Stagione",
   "lNews": "News",
   "lTh": "a",
-  "lSeasonDay": "giornata"
+  "lSeasonDay" : "giornata",
+  "lErrorRequiredUsername" : "Username obbligatorio",
+  "lErrorMinLengthPassword" : "La password deve avere almeno {{minLength}} caratteri",
+  "lErrorMatchPassword" : "Le due password non coincidono",
+  "lErrorAlreadyUsername" : "{{username}} non disponibile. Scegli un altro username."
+
 }

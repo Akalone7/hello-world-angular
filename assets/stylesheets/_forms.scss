@@ -1,0 +1,54 @@
+.form-control {
+  height: 33px !important;
+  border-color: #cbd5dd;
+  border-radius: 2px;
+}
+.form-control,
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control:focus {
+  border-color: #177bbb;
+}
+
+.date-range {
+  text-align: center;
+  .datepicker.pull-left + .error-message{
+    display: none;
+  }
+  .error-message{
+    float: left;
+    width: 100%;
+    margin: 0;
+  }
+  span {
+    font-size: 33px;
+    line-height: 24px;
+    color: $darkGrey;
+  }
+  input.datepicker {
+    width: 45% !important;
+    width: calc(50% - 8px) !important;
+  }
+}
+
+.has-error .i-checks i{
+  border-color: $danger;
+}
+
+.has-error .help-block{
+  color: $error;
+  i {
+    .fa-spinner{
+      color : white;
+    }
+  }
+}
+
+/*----datepicker---*/
+input.datepicker{
+  width: 100%;
+  border: 1px solid $darkGrey;
+  background: url("../../images/datepicker-calendar.svg") no-repeat right #fff;
+}

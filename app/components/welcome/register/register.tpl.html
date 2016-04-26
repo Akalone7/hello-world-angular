@@ -1,28 +1,63 @@
-<form role="form">
-    <nav id="main-nav" class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <div class="navbar-brand"></div>
-            </div>
-            <div class="login center-block">
-                <a class="text-header"></a> <h1>{{'hSignUp' | translate}}</h1>
-                <div class="form-group">
-                    <label class="hidden" for="username">Username</label>
-                    <input type="text" class="form-control" ng-model="user.username" id="username" placeholder="Username">
-                </div>
 
-                <div class="form-group">
-                    <label class="hidden"  for="password">Password</label>
-                    <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
-                </div>
-
-                <div class="form-group">
-                    <label class="hidden" for="confirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" ng-model="user.confirmPassword" placeholder="confirm password">
-                </div>
-
-                <button type="button" class="btn btn-default" ng-click="">{{'lSignUp' | translate}}</button>
-            </div>
+<nav id="main-nav" class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand"></div>
         </div>
-    </nav>
-</form>
+        <div class="login center-block">
+            <a class="text-header"></a> <h1>{{'hSignUp' | translate}}</h1>
+            <form role="form" name="registrationForm" data-toggle="validator">
+
+                <div class="form-group" ng-class="{ 'has-error': registrationForm.username.$error && registrationForm.username.$dirty }">
+                    <label class="hidden" for="username">Username</label>
+                    <input type="text" name="username" class="form-control" ng-model-options="{getterSetter : true}" ng-model="local.getUsername" id="username" placeholder="Username" username required>
+                    <span class="help-block with-errors" ng-show="registrationForm.username.$error.required && registrationForm.username.$dirty">{{'lErrorRequiredUsername' | translate}}</span>
+                    <span class="help-block" ng-show="registrationForm.username.$pending.username">
+                    <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                    <span class="help-block with-errors" ng-show="registrationForm.username.$error.username">{{'lErrorAlreadyUsername' | translate:translationData}}</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': registrationForm.password.$error.minlength && registrationForm.password.$dirty }">
+                    <label class="hidden"  for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" ng-model="user.password" placeholder="Password" ng-minlength="6" required>
+                    <span class="help-block with-errors" ng-show="registrationForm.password.$error.minlength && registrationForm.password.$dirty">{{'lErrorMinLengthPassword' | translate:translationData}}</span>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': registrationForm.confirmPassword.$error.pattern && registrationForm.confirmPassword.$dirty }">
+                    <label class="hidden" for="confirmPassword">Confirm Password</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" ng-model="user.confirmPassword" placeholder="confirm password"
+                           ng-pattern="{{user.password}}" required>
+                    <span class="help-block with-errors" ng-show="registrationForm.confirmPassword.$error.pattern && registrationForm.confirmPassword.$dirty">{{'lErrorMatchPassword' | translate}}</span>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': registrationForm.name.$error.required && registrationForm.name.$dirty }">
+                    <label class="hidden" for="name">Name</label>
+                    <input type="text" name="name" class="form-control" ng-model="user.name" id="name" placeholder="Name" required>
+                    <span class="help-block with-errors" ng-show="registrationForm.name.$error.required && registrationForm.name.$dirty">{{'lErrorRequiredName' | translate}}</span>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': registrationForm.surname.$error.required && registrationForm.surname.$dirty }">
+                    <label class="hidden" for="surname">Surname</label>
+                    <input type="text" name="surname" class="form-control" ng-model="user.surname" id="surname" placeholder="Surname" required>
+                    <span class="help-block with-errors" ng-show="registrationForm.surname.$error.required && registrationForm.surname.$dirty">{{'lErrorRequiredSurname' | translate}}</span>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': registrationForm.age.$error.required && registrationForm.age.$dirty }">
+                    <label class="hidden" for="age">Age</label>
+                    <input type="number" name="age" class="form-control" ng-model="user.age" id="age" placeholder="Age" min="18" required>
+                    <span class="help-block with-errors" ng-show="registrationForm.age.$error.required && registrationForm.age.$dirty">{{'lErrorRequiredAge' | translate}}</span>
+                    <span class="help-block with-errors" ng-show="registrationForm.age.$error.min && registrationForm.age.$dirty">{{'lErrorInvalidAge' | translate}}</span>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error': registrationForm.email.$error.required && registrationForm.email.$dirty }">
+                    <label class="hidden" for="email">Email</label>
+                    <input type="email" name="email" class="form-control" ng-model="user.email" id="email" placeholder="Email" required>
+                    <span class="help-block with-errors" ng-show="registrationForm.email.$error.required && registrationForm.email.$dirty">{{'lErrorRequiredMail' | translate}}</span>
+                    <span class="help-block with-errors" ng-show="registrationForm.email.$error.email && registrationForm.email.$dirty">{{'lErrorInvalidMail' | translate}}</span>
+                </div>
+
+                <button type="button" class="btn btn-default" ng-disabled="registrationForm.$invalid" ng-click="signUp()">{{'lSignUp' | translate}}</button>
+            </form>
+        </div>
+    </div>
+</nav>
