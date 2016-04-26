@@ -19,7 +19,9 @@ angular.module('hsClefraApp')
       authentication: apiPath + '/authentication',
       getUser: apiPath + '/user',
       insertUser: apiPath + '/signup',
-      checkUsername: apiPath + '/signup/checkUsername'
+      checkUsername: apiPath + '/signup/checkUsername',
+      getLastSeasonDay: apiPath + '/seasonDays/last',
+      getSeasonDay: apiPath + '/seasonDays'
     }
     })())
   .constant('defaultLanguage', 'it');

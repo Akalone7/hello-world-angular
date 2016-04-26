@@ -44,4 +44,12 @@ angular.module('hsClefraApp')
       var request = buildRequest(serverApiUrls.checkUsername, username);
       return httpConnectionLayerSvc.receive(request, successCallback);
     };
+    this.getLastSeasonDay = function (successCallback) {
+         var request = buildRequest(serverApiUrls.getLastSeasonDay);
+            return httpConnectionLayerSvc.receive(request, successCallback);
+        };
+        this.getSeasonDay = function (successCallback, param) {
+            var request = buildRequest(serverApiUrls.getSeasonDay);
+            return httpConnectionLayerSvc.receive(request, successCallback, param);
+        };
   });

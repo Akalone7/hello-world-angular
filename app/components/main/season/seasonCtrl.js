@@ -20,10 +20,7 @@ angular.module('hsClefraApp').controller('SeasonCtrl', function ($scope, serverA
     result : "0 - 0",
     away : "Torino"
   };
-  $scope.seasonDay = {
-    day : 1,
-    matches : [match1, match2, match3]
-  };
+ // $scope.seasonDay =
 
   $scope.daysOfSeason = 10;
   $scope.getNumber = function(num) {
@@ -31,8 +28,14 @@ angular.module('hsClefraApp').controller('SeasonCtrl', function ($scope, serverA
   };
 
   $scope.getSeasonDay = function (day){
-    $scope.seasonDay.day = day;
+        serverApiSvc.getSeasonDay(function (data) {
+          if(angular.isDefined(data)) {
+              $scope.seasonDay = data;
+          }
+        }, day
+        )
   }
+  $scope.getSeasonDay(1);
 
 
 });
