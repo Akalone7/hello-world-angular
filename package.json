@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./app --ext .js",
-    "start": "node ./dist/scripts/app.js"
+    "start": "node app",
+    "postinstall" : "gulp default"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.1.18",
