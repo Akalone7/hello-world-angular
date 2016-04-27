@@ -4,7 +4,10 @@
 angular.module('hsClefraApp')
   .controller('RegisterCtrl', function ( $scope, $state, serverApiSvc, AuthenticationService, $filter, $rootScope) {
 
-    $scope.user = {};
+    $scope.user = {
+      userDetails : {},
+      credentials : {}
+    };
     $scope.failedLogin = "";
 
     $scope.translationData = {
@@ -15,11 +18,12 @@ angular.module('hsClefraApp')
     $scope.local = {
       getUsername : function (val){
         if(val){
-          $scope.user.username = val;
+          $scope.user.userDetails.username = val;
+          $scope.user.credentials.username = val;
           $scope.translationData.username = val;//TODO ??? non funziona ???
         }
 
-        return $scope.user.username;
+        return $scope.user.userDetails.username;
     }
   };
 
