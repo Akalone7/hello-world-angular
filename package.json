@@ -3,10 +3,10 @@
   "private": true,
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./app --ext .js",
-    "start": "node app",
-    "postinstall" : "gulp default"
+    "start": "node app/app",
+    "postinstall" : "bower install && gulp default"
   },
-  "devDependencies": {
+  "dependencies": {
     "babel-preset-es2015": "^6.1.18",
     "bower": "~ 1.6.5",
     "del": "^1.1.1",
@@ -46,12 +46,10 @@
     "plumber": "^0.4.8",
     "protractor": "^1.1.1",
     "q": "^1.1.2",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "alertifyjs": "^1.6.1"
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "dependencies": {
-    "alertifyjs": "^1.6.1"
   }
 }
