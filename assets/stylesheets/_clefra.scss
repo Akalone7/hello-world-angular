@@ -98,6 +98,9 @@ li.no-dummy{
     .name{
       font-weight: bold;
       color: $main-dark;
+      &:hover{
+
+      }
     }
     .company{
       display: block;
@@ -115,7 +118,7 @@ li.no-dummy{
     }
   }
   .dropdown-menu{
-    background: $main;
+    background: $secondary;
     border: none;
     border-radius: 0;
     margin: 0;
@@ -246,4 +249,8 @@ li.no-dummy{
   &.navbar-inverse {
     background-color: $main;
   }
+}
+
+.season-day{
+  cursor : pointer;
 }

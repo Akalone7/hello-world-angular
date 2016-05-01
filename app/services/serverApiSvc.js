@@ -48,8 +48,8 @@ angular.module('hsClefraApp')
          var request = buildRequest(serverApiUrls.getLastSeasonDay);
             return httpConnectionLayerSvc.receive(request, successCallback);
         };
-        this.getSeasonDay = function (successCallback, param) {
-            var request = buildRequest(serverApiUrls.getSeasonDay);
+        this.getSeasonDay = function (successCallback, day, param) {
+            var request = buildRequest(serverApiUrls.getSeasonDay, day);
             return httpConnectionLayerSvc.receive(request, successCallback, param);
         };
   });

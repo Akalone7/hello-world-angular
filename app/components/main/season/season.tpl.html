@@ -16,7 +16,7 @@
 
                 <ul class="list-inline panel-primary days-of-season">
                     <li ng-repeat="i in getNumber(daysOfSeason) track by $index" ng-click="getSeasonDay($index+1)">
-                        <span>{{$index+1}}</span>
+                        <span class="season-day">{{$index+1}}</span>
                     </li>
                 </ul>
 
@@ -25,18 +25,18 @@
 
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h4 class="widgetHeader">{{seasonDay.day}}{{'lTh' | translate}} {{'lSeasonDay' | translate}}</h4>
+                                <h4 class="widgetHeader">{{seasonDay.seasonDay}}{{'lTh' | translate}} {{'lSeasonDay' | translate}}</h4>
 
                                 <div ng-repeat="match in seasonDay.matches track by $index">
                                     <div class="row">
                                     <div class="col-xs-4 text-center">
-                                        <span>{{match.home}}</span>
+                                        <span>{{match.home.teamName}}</span>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <span>{{match.result}}</span>
+                                        <span>{{match.homeGoals}} - {{match.awayGoals}}</span>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <span>{{match.away}}</span>
+                                        <span>{{match.away.teamName}}</span>
                                     </div>
                                 </div>
                                 </div>
